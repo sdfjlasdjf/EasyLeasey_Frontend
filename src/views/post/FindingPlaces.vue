@@ -79,7 +79,7 @@ const viewPostDetails = (postId) => {
                 @click="viewPostDetails(post.id)"
             >
                 <el-card shadow="hover">
-                    <img :src="post.coverImg" alt="Post Image" class="post-image" />
+                    <img src= "https://i.postimg.cc/XqxjN9xX/Hotel-Rooms-King.jpg" alt="Post Image" class="post-image" />
                     <div class="post-title">{{ post.title }}</div>
                 </el-card>
             </div>

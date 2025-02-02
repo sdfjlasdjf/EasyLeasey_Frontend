@@ -1,22 +1,22 @@
 <template>
   <div class="chat-list-container">
-    <h2>Your Conversations</h2>
-    <el-list>
-      <el-list-item
+    <h2 class="title">Your Conversations</h2>
+    <div class="conversation-list">
+      <el-card
         v-for="conversation in conversations"
         :key="conversation.id"
+        class="conversation-card"
+        shadow="never"
         @click="goToConversation(conversation.id)"
       >
-        <el-list-item-content>
-          <el-list-item-title>
-            Conversation {{ conversation.id }}
-          </el-list-item-title>
-          <el-list-item-description>
-            Last message: {{ conversation.lastMessage }}
-          </el-list-item-description>
-        </el-list-item-content>
-      </el-list-item>
-    </el-list>
+        <div class="conversation-info">
+          <span class="conversation-title">Conversation {{ conversation.id }}</span>
+          <span class="last-message">
+            Last message: {{ conversation.lastMessage || 'No messages yet' }}
+          </span>
+        </div>
+      </el-card>
+    </div>
   </div>
 </template>
 
@@ -50,13 +50,52 @@ onMounted(() => {
 <style scoped>
 .chat-list-container {
   padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.el-list-item {
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-card {
   cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.2s;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  margin: 0;
 }
 
-.el-list-item:hover {
+.conversation-card:hover {
   background-color: #f5f5f5;
+}
+
+.conversation-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversation-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.last-message {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
 }
 </style>

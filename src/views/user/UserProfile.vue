@@ -266,7 +266,7 @@ const likedPostsFurniture = computed(() => likedPosts.value.filter(post => post.
                             class="post-card"
                             @click="openPostDetailDialog(post.id)"
                         >
-                            <img :src="post.coverImg" alt="Liked Post Image" class="post-image" />
+                            <img :src="post.image" alt="Liked Post Image" class="post-image" />
                             <div class="post-title">{{ post.title }}</div>
 
                         </el-card>

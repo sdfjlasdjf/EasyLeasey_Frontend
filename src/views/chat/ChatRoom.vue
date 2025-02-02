@@ -143,7 +143,7 @@ onUnmounted(() => {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  max-width: 70%;
+  max-width: 70%; /* Restrict bubble width */
 }
 
 .my-message {
@@ -162,6 +162,15 @@ onUnmounted(() => {
   color: #fff;
   padding: 8px 12px;
   border-radius: 15px;
+  word-wrap: break-word; /* Allow wrapping for long words */
+  max-width: 100%; /* Prevent stretching */
+}
+
+.my-message .message-content {
+  background-color: #409eff;
+  color: #fff;
+  text-align: left;
+  align-self: flex-end; /* Align bubble to the right */
 }
 
 .other-message .message-content {
@@ -190,3 +199,4 @@ onUnmounted(() => {
   width: 80px;
 }
 </style>
+

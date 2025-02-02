@@ -164,7 +164,7 @@ const chatWithOwner = async (ownerId) => {
                 @click="fetchPostDetails(post.id)"
             >
                 <el-card shadow="hover">
-                    <img :src="post.coverImg" alt="Post Image" class="post-image" />
+                    <img :src="post.image" alt="Post Image" class="post-image" />
                     <div class="post-title">{{ post.title }}</div>
                     <!-- Display price if available -->
                     <div v-if="post.price" class="post-price">Price: ${{ post.price }}</div>
